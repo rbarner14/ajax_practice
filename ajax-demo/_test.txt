@@ -1,0 +1,22 @@
+Set up
+	>>> from server import app
+	>>> client = app.test_client()
+
+Check server routes
+	>>> r = client.get("/status", data={'order': ""})
+	>>> assert "ON-TIME" in str(r.data)
+
+	>>> r = client.post("/new-order", data={'type': "melon", 'amount': "3"})
+	<BLANKLINE>
+ 	<BLANKLINE>
+ 	NEW ORDER: 3 melon
+	<BLANKLINE>
+	<BLANKLINE>
+	>>> assert "Confirmed" in str(r.data)
+
+	>>> r = client.get("/delivery-info.json", query_string={'address':'123 Main', 'city': 'SF'})
+	** GOT 123 Main SF
+	>>> assert '3' in str(r.data)
+
+	>>> r = client.get("/melon-info.json")
+	>>> assert '"name": "Watermelon",' in str(r.data)
