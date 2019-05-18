@@ -4,6 +4,8 @@ function updateStatus(response) {
   console.log(`Result from server: ${response}`);
 
   const status = response;
+  // Can be .text(status) as well; .html() is not available in XML documents 
+  // whereas .text() can be used in both XML & HTML documents
   $('#order-status').html(status);
 
   console.log('Callback function finished');
