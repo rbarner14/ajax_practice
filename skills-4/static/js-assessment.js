@@ -55,7 +55,6 @@ $(blueButton).on("click", function(){
 // });
 
 
-
 function swapCat(evt){
 
     $("#kittenz-rule").attr("src",
@@ -65,9 +64,73 @@ function swapCat(evt){
 
 $("#kittenz-rule").on("dblclick", swapCat)
 
+// Write a function that calculates the factorial of a positive number
+// Add an event listener that catches when someone clicks on the 'calculate' 
+// button and:
+// <ul>
+//   <li> gets whatever number is inside the 'number' input field</li>
+//   <li>calls your function that calculates a factorial</li>
+//   <li>puts the result of the function inside the 'result' span</li>
+
+function calculateFactorial(num){
+    let i = num;
+    var factorial = 1;
+
+    while(i > 0){
+        i *= factorial
+        i -= 1
+    }  
+
+    return factorial;
+}
+
+$("#calculate").on("click", function(){
+    let num = $("#number").val()
+    let factorial = 1;
+    let i = num;
+
+    while(i > 0){
+        factorial *= i;
+        i -= 1;
+    }
+
+    $("#result").html(factorial);
+});
 
 
 
+function showPlanetInfo(response){
+    $("#climate").html(response.climate);
+    $("#terrain").html(response.terrain);
+    $("#population").html(response.population);
+}
+
+function getPlanetInfo(){
+    var url = 'https://swapi.co/api/planets/1/';
+    $.get(url, showPlanetInfo)
+}
+
+$("#getInfo").on("click", getPlanetInfo);
+
+// Or can do it as:
+// function getPlanetInfo(){
+//     $.get("https://swapi.co/api/planets/1/", showResults)
+//   }
+
+// function showResults(results) {
+//   $('#climate').html(results.climate);
+//   $('#terrain').html(results.terrain);
+//   $('#population').html(results.population);
+// }
+
+// // Alternate
+// // function showResults(results){
+// //     for (let result in results) {
+// //       $('#' + result).html(results[result]);
+// //     }
+// // }
+
+// $("#getInfo").on("click", getPlanetInfo);
 
 
 
