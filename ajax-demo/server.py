@@ -80,6 +80,9 @@ def add_order():
     # Simulate wait time for adding an order to the db
     time.sleep(2)
 
+    # Usually, with a post request, we would add a row to a database, but this 
+    # demo does not have one.
+
     print(f"\n\nNEW ORDER: {amount} {melon_type}\n\n")
 
     return "Your order has been confirmed"
