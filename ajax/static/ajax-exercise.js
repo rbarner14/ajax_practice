@@ -65,3 +65,51 @@ function orderMelons(evt) {
 $("#order-form").on('submit', orderMelons);
 
 
+// Can also be written as
+
+// function orderMelons(evt) {
+//     evt.preventDefault();
+
+//     // TODO: show the result message after your form
+//     // TODO: if the result code is ERROR, make it show up in red (see our CSS!)
+//     let url = "/order-melons.json";
+//     let formData = $("#order-form").serialize()
+
+//     $.post("/order-melons.json", formData, showMelonMessage);
+// }
+
+// $("#order-form").submit(orderMelons);
+
+
+// OR as an inline function
+// var orderMelons = function(evt){
+//     evt.preventDefault();
+
+//     // TODO: show the result message after your form
+//     // TODO: if the result code is ERROR, make it show up in red (see our CSS!)
+//     let url = "/order-melons.json";
+//     let formData = $("#order-form").serialize()
+
+//     $.post("/order-melons.json", formData, showMelonMessage); 
+// }
+
+// $("#order-form").on('submit', orderMelons);
+
+
+// OR as an anonymous function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
